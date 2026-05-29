@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #1f80e0;
+  --color-bg-dark: #0f1014;
+  --color-bg-surface: #16181f;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  background-color: var(--color-bg-dark);
+  color: white;
+}
+
+@layer base {
+  body {
+    @apply font-sans m-0 overflow-x-hidden selection:bg-brand selection:text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1014;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2d35;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f414d;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glass {
+  @apply backdrop-blur-md bg-black/40 border border-white/10;
+}
+
+.aspect-poster {
+  aspect-ratio: 2/3;
+}
+
+.aspect-video-card {
+  aspect-ratio: 16/9;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #16181f 25%, #252833 50%, #16181f 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+}
